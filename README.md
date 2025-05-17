@@ -92,7 +92,7 @@ west update
 Install the rest of the python requirements
 
 ```bash
-pip install -r zephyr/scripts/requirements.txt
+west packages pip --install
 ```
 
 
