@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/gpio.h>
+#include <zephyr/random/random.h>
 
 /* 1000 msec = 1 sec */
 #define SLEEP_TIME_MS   200
@@ -24,6 +25,7 @@ int main(void)
 {
 	int ret;
 	bool led_state = true;
+	uint32_t rnd = 0;
 
 	if (!gpio_is_ready_dt(&led)) {
 		return 0;
@@ -35,13 +37,14 @@ int main(void)
 	}
 
 	while (1) {
+		rnd = sys_rand32_get();
 		ret = gpio_pin_toggle_dt(&led);
 		if (ret < 0) {
 			return 0;
 		}
 
 		led_state = !led_state;
-		printf("LED state: %s\n", led_state ? "ON" : "OFF");
+		printf("LED state: %s - Random: %u\n", led_state ? "ON" : "OFF", rnd);
 		k_msleep(SLEEP_TIME_MS);
 	}
 	return 0;

@@ -9,6 +9,7 @@ manifest:
       remote: zephyrproject-rtos
       revision: v4.1.0
       west-commands: scripts/west-commands.yml
+      # import: submanifests
     # - name: acpica
     #   revision: 8d24867bc9c9d81c81eeac59391cda59333affd4
     #   path: modules/lib/acpica
@@ -171,11 +172,11 @@ manifest:
     #   path: modules/hal/microchip
     #   groups:
     #     - hal
-    # - name: hal_nordic
-    #   revision: 37ca068d7b013fb65a2acc9306bffa48a3e72839
-    #   path: modules/hal/nordic
-    #   groups:
-    #     - hal
+    - name: hal_nordic
+      revision: 37ca068d7b013fb65a2acc9306bffa48a3e72839
+      path: modules/hal/nordic
+      groups:
+        - hal
     # - name: hal_nuvoton
     #   revision: 466c3eed9c98453fb23953bf0e0427fea01924be
     #   path: modules/hal/nuvoton
@@ -343,4 +344,4 @@ manifest:
     #   revision: 9b07780aca6fb21f82a241ba386ad9b379809337
     #   path: modules/lib/zcbor
   self:
-    path: app
+    path: apps
