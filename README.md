@@ -109,5 +109,19 @@ With the project completly setup we can test it by building the blinky example p
 
 For example to build the project for a STM32F429ZI Nucleo dev board:
  ```bash
- west build -p -b nucleo_f429zi
+ west build -p always -b nucleo_f429zi
  ```
+
+ Alternatively, we can fix the board type using *west config*
+
+```bash
+# To check current config
+west config -l
+
+# To add a board to the setting
+west config build.board nucleo_f429zi
+
+# Also to delete the config setting
+west config -d build.board
+```
+However, this setting will apply to all apps inside the apps folder. If different apps are targeting different boards this parameter must not be set
