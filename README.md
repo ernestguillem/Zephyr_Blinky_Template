@@ -1,4 +1,4 @@
-# Zephyr-RTOS blinky template
+# Zephyr-RTOS Template
 
 This repo contains an example template for a new Zephyr project using the T2 (Star topology) where the application is the manifest repository.
 
@@ -17,6 +17,8 @@ This zephyr project uses the ARM GCC Compiler and assumes it is installed and th
 For more information on available toolchains visit the [Zephyr Toolchain Documentation](https://docs.zephyrproject.org/latest/guides/beyond-GSG.html#set-up-a-toolchain)
 
 If another toolchain is used make sure to change the ZEPHYR_TOOLCHAIN_VARIANT variable in CMakeLists.txt
+
+Alternatively we can install zephyr-sdk to provide one or multiple compilers
 
 ### Python
 
@@ -37,7 +39,6 @@ Create a folder for the new workspace. This new workspace will host an app folde
 
 ```bash
 mkdir our_app_workspace
-
 cd our_app_workspace
 ```
 
@@ -46,11 +47,18 @@ We only need to create the workspace folder, the rest will be handled by west to
 ```
 our_app_workspace/
 │
-├── app/                   # This is where our repo will be installed
-│   ├── CMakeLists.txt
-│   ├── prj.conf
-│   ├── src/
-│   │   └── main.c
+├── app/                    # This is where our repo will be installed
+│   ├── app1/               
+│   │   ├── CMakeLists.txt  # First Application
+│   │   ├── prj.conf
+│   │   └── src/
+│   │       └── main.c
+│   │
+│   ├── app2/
+│   │   ├── CMakeLists.txt  # Second Application
+│   │   ├── prj.conf
+│   │   └── src/
+│   │       └── main.c
 │   └── west.yml           # main manifest with optional import(s) and override(s)
 │                                    
 ├── modules/
@@ -83,8 +91,7 @@ pip install west
 Using west we clone our repo into the app folder and using *west update* we import the rest of the project from the Zephyr repository.
 
 ```bash
-west init -m <repo_url>
-
+west init -m <repo_url>  # this repo in this case
 west update
 ```
 ### Install python requirements
