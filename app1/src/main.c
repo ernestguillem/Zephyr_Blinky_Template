@@ -10,7 +10,7 @@
 #include <zephyr/random/random.h>
 
 /* 1000 msec = 1 sec */
-#define SLEEP_TIME_MS   200
+#define SLEEP_TIME_MS   500
 
 /* The devicetree node identifier for the "led0" alias. */
 #define LED0_NODE DT_ALIAS(led0)
@@ -44,7 +44,7 @@ int main(void)
 		}
 
 		led_state = !led_state;
-		printf("LED state: %s - Random: %u\n", led_state ? "ON" : "OFF", rnd);
+		printk("LED state: %s - Random: %u\n", led_state ? "ON" : "OFF", rnd);
 		k_msleep(SLEEP_TIME_MS);
 	}
 	return 0;
