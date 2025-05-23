@@ -9,6 +9,8 @@
 		"cmake.configureOnOpen": false,
 		"terminal.integrated.persistentSessionReviveProcess": "never",
 		"terminal.integrated.enablePersistentSessions": false,
+		"C_Cpp.autoAddFileAssociations": false,
+	    "C_Cpp.default.compileCommands": "build/compile_commands.json",
 	},
 	"tasks": {
 		"version": "2.0.0",
