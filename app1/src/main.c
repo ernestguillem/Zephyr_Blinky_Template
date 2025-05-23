@@ -8,6 +8,7 @@
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/random/random.h>
+#include "usr_fun.h"
 
 /* 1000 msec = 1 sec */
 #define SLEEP_TIME_MS   500
@@ -35,6 +36,10 @@ int main(void)
 	if (ret < 0) {
 		return 0;
 	}
+
+	#ifdef CONFIG_USR_FUN
+    usr_fun();
+	#endif
 
 	while (1) {
 		rnd = sys_rand32_get();
