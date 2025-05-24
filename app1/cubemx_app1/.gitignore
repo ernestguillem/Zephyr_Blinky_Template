@@ -1,0 +1,9 @@
+cmake
+Core
+Drivers
+.mxproject
+CMakePresets.json
+*.ld
+*.s
+!*.ioc
+!CMakeLists.txt
