@@ -7,8 +7,10 @@
 	"settings": {
 		// Hush CMake
 		"cmake.configureOnOpen": false,
+		// Prevents a terminal to be open upon start
 		"terminal.integrated.persistentSessionReviveProcess": "never",
 		"terminal.integrated.enablePersistentSessions": false,
+		// Prevents adding associations when using F12 to show definitions
 		"C_Cpp.autoAddFileAssociations": false,
 	    "C_Cpp.default.compileCommands": "build/compile_commands.json",
 	},
