@@ -1,0 +1,26 @@
+/ {
+
+  aliases {
+    alias-by-label = &label_with_props;
+    alias-by-path = &{/node_with_props};
+    alias-as-string = "/node_with_props";
+  };
+
+  chosen {
+    chosen-by-label = &label_with_props;
+    chosen-by-path = &{/node_with_props};
+    chosen-as-string = "/node_with_props";
+  };
+
+  label_with_props: node_with_props {
+    compatible = "custom-props-basics";
+    existent-boolean;
+    int = <1>;
+    array = <1 second_value: 2 3>;
+    uint8-array = [ 12 34 ];
+    string = string_value: "foo bar baz";
+    string-array = "foo", "bar", "baz";
+    enum-int = <200>;
+    enum-string = "whatever";
+  };
+};

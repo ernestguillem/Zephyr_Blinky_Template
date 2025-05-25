@@ -1,0 +1,28 @@
+description: Custom properties
+compatible: "custom-props-basics"
+
+properties:
+  existent-boolean:
+    type: boolean
+  int:
+    type: int
+    required: true
+  array:
+    type: array
+  uint8-array:
+    type: uint8-array
+  string:
+    type: string
+  string-array:
+    type: string-array
+  enum-int:
+    type: int
+    enum:
+      - 100
+      - 200
+      - 300
+  enum-string:
+    type: string
+    enum:
+      - "whatever"
+      - "works"
