@@ -26,3 +26,7 @@
     enum-string = "whatever";
   };
 };
+
+&usart3 {
+  pinctrl-0 = <&usart3_tx_pc10 &usart3_rx_pc11>;
+};
