@@ -16,3 +16,4 @@ manifest:
           - zephyr
           - cmsis
           - hal_stm32
+          - segger
