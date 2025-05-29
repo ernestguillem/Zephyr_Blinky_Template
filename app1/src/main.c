@@ -6,8 +6,14 @@
 
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/gpio.h>
+#include <zephyr/logging/log_ctrl.h>
 
 #include "usr_fun.h"
+#include <zephyr/logging/log.h>
+#include <zephyr/shell/shell.h>
+
+LOG_MODULE_REGISTER(main, LOG_LEVEL_DBG);
+
 
 /* 1000 msec = 1 sec */
 #define SLEEP_TIME_MS   500
@@ -19,6 +25,7 @@
 
 #define STACKSIZE	500
 
+#define CONFIG_LOG_TIMESTAMPING 0
 /*
  * A build error on this line means your board is unsupported.
  * See the sample documentation for information on how to fix this.
@@ -58,7 +65,7 @@ int main(void)
 	gpio_pin_set_dt(&led2, true);
 	
 	#ifdef CONFIG_USR_FUN
-    usr_fun();
+    	usr_fun();
 	#endif
 	
 	return 0;
@@ -66,3 +73,4 @@ int main(void)
 
 K_THREAD_DEFINE(blink0_id, STACKSIZE, blink0, NULL, NULL, NULL, 7, 0, 0);
 K_THREAD_DEFINE(blink1_id, STACKSIZE, blink1, NULL, NULL, NULL, 7, 0, 0);
+

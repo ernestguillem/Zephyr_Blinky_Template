@@ -13,7 +13,9 @@ project(
     LANGUAGES C
     )
     
-target_sources(app PRIVATE src/main.c)
+target_sources(app PRIVATE 
+                src/main.c
+                src/shell.c)
 
 target_sources_ifdef(
     CONFIG_USR_FUN

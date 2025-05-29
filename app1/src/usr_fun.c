@@ -6,7 +6,7 @@
 	#ifdef CONFIG_USR_FUN
 void usr_fun(void)
 {
-    printk("Message in a user function.\n");
+    printk("Message in a user function");
 }
 #else
 void usr_fun(void){}
