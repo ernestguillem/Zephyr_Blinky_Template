@@ -3,11 +3,12 @@
 #include "usr_fun.h"
 #include <zephyr/kernel.h>
 
-	#ifdef CONFIG_USR_FUN
-void usr_fun(void)
-{
+#ifdef CONFIG_USR_FUN
+
+void usr_fun(void) {
     printk("Message in a user function");
 }
+
 #else
 void usr_fun(void){}
 

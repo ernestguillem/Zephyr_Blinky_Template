@@ -4,8 +4,9 @@
     alias-by-label = &label_with_props;
     alias-by-path = &{/node_with_props};
     alias-as-string = "/node_with_props";    	
-		led1 = &yellow_led_1;
+    led1 = &yellow_led_1;
     led2 = &red_led_1;
+    usrbtn = &user_button;
   };
 
   chosen {
