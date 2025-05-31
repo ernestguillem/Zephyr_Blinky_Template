@@ -55,6 +55,15 @@ _Noreturn void blink1(void) {
   }
 }
 
+void my_timer_handler(struct k_timer *dummy)
+{
+        printk("Software timer has expired\n");
+}
+
+K_TIMER_DEFINE(my_timer, my_timer_handler, NULL);
+
+    /* start a periodic timer that expires once every second */
+
 int main(void) {
   gpio_pin_configure_dt(&led2, GPIO_OUTPUT_ACTIVE);
   gpio_pin_set_dt(&led2, false);

@@ -7,6 +7,8 @@ LOG_MODULE_REGISTER(shell, LOG_LEVEL_DBG);
 
 extern const struct pwm_dt_spec pwm_spec;
 
+extern struct k_timer my_timer;
+
 static int function1(const struct shell *sh, size_t argc, char **argv) {
   ARG_UNUSED(argc);
   ARG_UNUSED(argv);
@@ -45,11 +47,19 @@ static int function4(const struct shell *sh, size_t argc, char **argv) {
   return 0;
 }
 
+static int function5(const struct shell *sh, size_t argc, char **argv) {
+  uint16_t seconds = atoi(argv[1]);
+
+  k_timer_start(&my_timer, K_SECONDS(seconds), K_NO_WAIT);
+  return 0;
+}
+
 SHELL_STATIC_SUBCMD_SET_CREATE(
     sub_demo, SHELL_CMD(demo1, NULL, "First demo function", function1),
     SHELL_CMD(demo2, NULL, "Second demo function", function2),
     SHELL_CMD_ARG(demo3, NULL, "Third demo function", function3, 2, 0),
     SHELL_CMD_ARG(pwm, NULL, "Pwm demo function", function4, 2, 0),
+    SHELL_CMD_ARG(timer, NULL, "Software timer demo function", function5, 2, 0),
     SHELL_SUBCMD_SET_END /* Array terminated. */
 );
 
