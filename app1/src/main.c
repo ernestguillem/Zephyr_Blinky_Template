@@ -1,7 +1,12 @@
 #include <zephyr/kernel.h>
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/logging/log.h>
+#include "zephyr/drivers/pwm.h"
+#include "zephyr/device.h"
+
 #include "usr_fun.h"
+
+
 
 LOG_MODULE_REGISTER(main, LOG_LEVEL_DBG);
 
