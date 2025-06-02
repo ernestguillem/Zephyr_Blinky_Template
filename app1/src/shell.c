@@ -51,6 +51,7 @@ static int function5(const struct shell *sh, size_t argc, char **argv) {
   uint16_t seconds = atoi(argv[1]);
 
   k_timer_start(&my_timer, K_SECONDS(seconds), K_NO_WAIT);
+  shell_print(sh, "Starting timer for %d seconds", seconds);
   return 0;
 }
 
@@ -58,7 +59,11 @@ SHELL_STATIC_SUBCMD_SET_CREATE(
     sub_demo, SHELL_CMD(demo1, NULL, "First demo function", function1),
     SHELL_CMD(demo2, NULL, "Second demo function", function2),
     SHELL_CMD_ARG(demo3, NULL, "Third demo function", function3, 2, 0),
-    SHELL_CMD_ARG(pwm, NULL, "Pwm demo function", function4, 2, 0),
+    SHELL_CMD_ARG(pwm, NULL,
+                  "Pwm demo function\n"
+                  "Parameters:\n"
+                  "  seconds - seconds to delay the output\n",
+                  function4, 2, 0),
     SHELL_CMD_ARG(timer, NULL, "Software timer demo function", function5, 2, 0),
     SHELL_SUBCMD_SET_END /* Array terminated. */
 );
